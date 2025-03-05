@@ -1,0 +1,92 @@
+/* Global Styling */
+body {
+    background: deepskyblue;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+/* Sidebar Styling */
+.sidebar-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    animation: fadeIn 1.2s ease-in-out;
+}
+.sidebar-container h2 {
+    color: #ffcc00;
+}
+.sidebar-container ul {
+    list-style: none;
+    padding-left: 10px;
+}
+.sidebar-container li {
+    margin: 10px 0;
+}
+
+/* Title Animation */
+.title-container {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 15px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+/* Results Container */
+.results-container {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Resume Ranking Cards */
+
+.resume-card {
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+.resume-card:hover {
+    transform: scale(1.05);
+}
+.high-score {
+    background: linear-gradient(90deg, #28a745, #4caf50);
+    color: white;
+}
+.medium-score {
+    background: linear-gradient(90deg, #ffcc00, #ff9800);
+    color: black;
+}
+.low-score {
+    background: linear-gradient(90deg, #ff4c4c, #d32f2f);
+    color: white;
+}
+
+/* Button Styling */
+.stButton>button {
+    background: linear-gradient(90deg, #2196f3, #21cbf3);
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+.stButton>button:hover {
+    background: linear-gradient(90deg, #0b78d1);
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
