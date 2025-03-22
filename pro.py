@@ -1,10 +1,11 @@
 #AI-Powerd Resume Screening & Ranking System
-#Technology Used:-
+#Technology Used:-python,stremlit,NLP,pypdf2
 #Python Program & Libary
 #ML Libary
 #Basic HTML & CSS For Designing
+#NAME:-HALVADIA DARSHIL 
 
-
+#First Download Required Libary For This Program.
 import streamlit as st
 import pandas as pd
 import time
@@ -13,14 +14,14 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from collections import Counter
 
-# Load External CSS
+# Load External CSS for better UI
 def load_css():
     with open("style.css", "r") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 load_css()
-
-# Sidebar Navigation 
+#RESUME RANKING SYSTEAM.!
+# Sidebar Navigation With User Freindly
 st.sidebar.markdown("""
     <div class='sidebar-container'>
         <h2>📌 Navigation</h2>
@@ -32,21 +33,22 @@ st.sidebar.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# Title with Animation
+# Title with Animation modern tourch
 st.markdown("<div class='title-container'><h1>🚀 AI Resume Screening & Ranking</h1></div>", unsafe_allow_html=True)
 
 # Job Description Input
 job_description = st.text_area("✍️ Enter Your  Job Description Here")
 
-# Resume Upload
+# Resume Upload sectione
 uploaded_files = st.file_uploader("📄 Upload Resumes (PDF Only)", accept_multiple_files=True, type=["pdf"])
 
-# Extract Text from PDFs
+# Extract Text from PDFs (PDF extract text from PDF)
 def extract_text(file):
     pdf_reader = PdfReader(file)
     return "".join(page.extract_text() or "" for page in pdf_reader.pages)
 
-# Extract Keywords from Resume
+# Extract Keywords from Resume Bt Functione from Uploded Resume PDF.
+
 def extract_keywords(text, top_n=5):
     words = text.lower().split()
     common_words = Counter(words).most_common(top_n)
@@ -81,7 +83,7 @@ if st.button("🎯 Rank Resumes"):
         color_class = "high-score" if score >= 60 else "medium-score" if score >= 35 else "low-score"
         top_keywords = extract_keywords(resume)
 
-        # Display resume ranking with card effect
+        # Display resume ranking with card effect in UI
         st.markdown(
             f"""
             <div class="resume-card {color_class}">
@@ -95,7 +97,7 @@ if st.button("🎯 Rank Resumes"):
 
         ranked_data.append({"Resume": f"Resume {i+1}", "Score": score, "Keywords": ", ".join(top_keywords)})
 
-    # Download Option
+    # Download Option Your Resume Ranked to CSV.file 
     if ranked_data:
         df = pd.DataFrame(ranked_data)
         st.download_button("📥 Download Results", df.to_csv(index=False), "ranked_resumes.csv", "text/csv")
